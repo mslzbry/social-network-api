@@ -19,6 +19,7 @@ const ReactionSchema = new Schema(
     createdAt: {
         type: Date,
         default: Date.now,
+        // the moment library will format the date in the below format
         get: (createdAt) => moment(createdAt).format('MM DD, YYYY hh:mm a')
     }
     },
@@ -46,7 +47,7 @@ const ThoughtSchema = new Schema(
         type: String,
         required: true
     },
-    reactions: [ReactionSchema]
+    reactions: [ReactionSchema] // reactions are like replies
     },
     {
     toJSON: {
